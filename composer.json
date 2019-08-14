@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/shweta_video",
+    "type": "magento-module",
+    "license": "GPL",
+    "homepage": "",
+    "description": "This extension helps to upload video from backend and display as a image in any cms page and video will be run after you click it and pop-up opened.",
+    "authors": [
+    {
+        "name": "Shweta Agarwal",
+        "email": "shweta@ptiwebtech.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

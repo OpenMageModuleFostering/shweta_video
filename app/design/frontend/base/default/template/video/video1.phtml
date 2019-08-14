@@ -1,0 +1,72 @@
+<div id="main">
+<h1>Video</h1>
+<div class="fleft-not-display">
+<ul class="gallery clearfix">
+<li><a title="Flash 10 demo" href="http://www.adobe.com/products/flashplayer/include/marquee/design.swf?width=792&amp;height=294" rel="prettyPhoto[flash]">video</a></li>
+</ul>
+</div>
+
+
+<?php
+$connection = Mage::getSingleton('core/resource')->getConnection('distributor_read'); //I assuming that you created the model for your table
+$result = $connection->fetchAll("SELECT * FROM shweta_video_url having count(id) > 20");
+?>
+
+<?php $k=0; foreach($result as $values) { ?>
+<?php ++$k; ?>
+<?php }
+// echo $k;
+?>
+
+<div class="fleft">
+
+<ul class="gallery clearfix">
+<?php $flag=0; if($flag==0) { ?>
+<?php  $i=1; $limit=1;
+///just checking the result
+ foreach($result as $values) { ?>
+<?php if($limit<=20){ ?>
+<?php // echo $values['keyurl']; ?>
+<?php // echo '<br/>' ?>
+
+
+
+<li class="first-video"><a title="YouTube demo" href="http://www.youtube.com/watch?v=<?php echo $values['keyurl']; ?>?rel=0" rel="prettyPhoto"><img src="http://img.youtube.com/vi/<?php echo $values['keyurl']; ?>/0.jpg" alt="" width="60" /></a></li>
+
+<?php } $limit++;?>
+<?php if($i%5==0) { ?>
+</ul></div><div class="fleft"><ul class="gallery clearfix">
+<?php } $i++; ?>
+
+
+<?php  } ?>
+</ul>
+</div>
+<?php if($limit>21) { ?>
+
+<?php $flag=1; ?>
+<?php } if($flag==1) { ?>
+<?php if($k>20 && $k<40) { ?>
+<a href="<?php echo $this->getUrl('video3'); ?>">2</a>
+<?php } ?>
+<?php } ?><?php } ?>
+</div>
+<a href="<?php echo $this->getUrl('video1'); ?>">prev</a>
+<script charset="utf-8" type="text/javascript">// <![CDATA[
+			$(document).ready(function(){
+				$("area[rel^='prettyPhoto']").prettyPhoto();
+				
+				$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal',theme:'light_square',slideshow:3000, autoplay_slideshow: true});
+				$(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:10000, hideflash: true});
+		
+				$("#custom_content a[rel^='prettyPhoto']:first").prettyPhoto({
+					custom_markup: '<div id="map_canvas" style="width:260px; height:265px"></div>',
+					changepicturecallback: function(){ initialize(); }
+				});
+
+				$("#custom_content a[rel^='prettyPhoto']:last").prettyPhoto({
+					custom_markup: '<div id="bsap_1259344" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div><div id="bsap_1237859" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6" style="height:260px"></div><div id="bsap_1251710" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div>',
+					changepicturecallback: function(){ _bsap.exec(); }
+				});
+			});
+// ]]></script>
